@@ -1,0 +1,21 @@
+XERO python microservices
+
+The project contains a service for Xero. This service provides CRUD functionality to the Xero application via API. The service has been implemented using FastAPI.
+
+The Xero service has been implemented usin FastAPI+PyXero.
+
+Getting Started
+ Clone the repository or download it from: https://github.com/Nolsta/ZohoCRM.git
+Prerequisites
+ -pyCharm or any python IDE
+Packages and Installations
+    1. Install Virtualevnv
+    2. Activate 'virtualenv env'
+    3. Activate env by typing '.\env\scripts\activate' on the terminal
+    4. Install requirements.txt
+    4. Run main script by typing 'uvicorn service.app.main:app --reload' on terminal.
+
+The service will run on 'http://127.0.0.1:8000/' and you can test endpoints from there and via postman.
+To get all records: '/all'
+To create record:'/'
+To update record:'/'
