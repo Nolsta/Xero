@@ -157,7 +157,7 @@ def authentication(org):
                                         tenant_id=tnnt_d, token=token)
         credentials.set_default_tenant()
 
-        # ttkn = token["refresh_token"]
+        ttkn = token["refresh_token"]
         # print(ttkn)
 
         #Create DB connection
