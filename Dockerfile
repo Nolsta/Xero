@@ -10,6 +10,5 @@ EXPOSE 80
 
 RUN . /opt/venv/bin/activate && pip install -r requirements.txt
 
-CMD . /opt/venv/bin/activate && uvicorn service.app.main:app --reload --debug --host 0.0.0.0 --port 80
+CMD . /opt/venv/bin/activate && uvicorn service.app.main:app --debug --host 0.0.0.0 --port 80
 
-docker stop ----time=30 xero-service

@@ -66,10 +66,13 @@ def get_refresh_token_from_db(org):
     try:
         # Gets the refresh token and credentials from a db table
         cur = conn0.cursor()
+
+        # cur.execute("SELECT * FROM ringier_crm.Xero")
         cur.execute("SELECT * FROM ringier_crm.Xero WHERE config_id='" + org + "'")
 
         # Arranges the results of the query into json format
-
+        # allRes = cur.fetchall()
+        # print(allRes)
         # Gets the column names returned by the query
         clients = [field[0] for field in cur.description]
         # fetches a single row from the query results
@@ -91,7 +94,6 @@ def get_refresh_token_from_db(org):
         # writes the method results into the cache
         # r.mset(name, query_results)
         # print(" test 2")
-
 
         return row
         # print("Hello1")

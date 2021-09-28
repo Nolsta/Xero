@@ -11,13 +11,8 @@ host = os.getenv("DB_HOST")
 port = 3306
 dbname = os.getenv("DB_NAME")
 user = os.getenv("DB_USERNAME")
-password = "hyugftuwgfi"
-#
-# host = os.getenv("XERO_DB_HOST")
-# port = 5439
-# dbname = os.getenv("XERO_DB_NAME")
-# user = os.getenv("XERO_DB_USERNAME")
-# password = os.getenv("XERO_DB_PASSWORD")
+password = os.getenv("DB_PASSWORD")
+
 
 conn = pymysql.connect(host, user, password, dbname)
 

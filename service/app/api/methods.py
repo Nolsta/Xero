@@ -1,3 +1,7 @@
+import os
+import signal
+import sys
+
 from fastapi import APIRouter, Depends
 from fastapi.security import HTTPBasicCredentials, HTTPBasic
 from xero import Xero
@@ -63,7 +67,7 @@ async def create_invoice(payload: CCube, credentials: HTTPBasicCredentials = Dep
         "Type": p2["type"],
         "Contact": p2["contact"],
         "LineAmountTypes": p2["line_amount_types"],
-        "LineItems": [p2["line_items"]]
+        "LineItems": p2["line_items"]
     }
 
     # print(p2["line_items"])
@@ -71,9 +75,18 @@ async def create_invoice(payload: CCube, credentials: HTTPBasicCredentials = Dep
     # return (xeero.invoices.all()), payload
     try:
         xeero.invoices.put(c)
-        return "Invoice created."
+        pid = os.getpid()
+        print(pid)  # just for aesthetics but not necessary
+        print("Invoice Created")
+        os.kill(pid, signal.SIGTERM)
+        # sys.exit(0)
+        # raise Exception("Exit Application")
+        # return "Invoice created."
     except Exception as e:
-        return "Could not create invoice due to ".format(e)
+        print(type(e))
+        sys.exit(0)
+        # print(e)
+        # return "Could not create invoice due to ".format(e)
     finally:
         print(p2["line_items"])
 
